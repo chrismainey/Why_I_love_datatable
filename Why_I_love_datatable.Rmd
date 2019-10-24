@@ -1,0 +1,116 @@
+---
+title: "Presentation Ninja"
+subtitle: "\u2694 <br/>with xaringan and xaringanthemer"  
+author: "Yihui Xie"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: xaringan-themer.css
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+    seal: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE}
+library(xaringanthemer)
+mono_light(base_color = "#23395b",
+           )
+
+
+```
+
+.pull-left[
+
+<br><br><br>
+<br><br><br>
+
+# Why I love
+
+<br><br><br>
+<br><br><br>
+
+`r icon::fa("envelope")` chris.mainey@uhb.nhs.uk
+
+`r icon::fa("globe")` [mainard.co.uk](https://www.mainard.co.uk)
+
+`r icon::fa("github")` [github.com/chrismainey](https://github.com/chrismainey)
+
+`r icon::fa("twitter")` [twitter.com/chrismainey](https://twitter.com/chrismainey)
+
+]
+
+.pull-right[
+<br><br><br>
+<br>
+![](https://raw.githubusercontent.com/Rdatatable/data.table/master/.graphics/logo.png)]
+
+
+
+
+---
+
+# What is it?
+
++ Modern reworking of `data.frame`
+
++ Java backend
+
++ Supports keys
+
+--
+
+# Why?
+
++ `data.frame` is slow
+
++ `data.table` is fast
+
+--
+ + Like,  _reeeeeally fast_ : https://h2oai.github.io/db-benchmark/
+ 
+--
+
++ Copy by reference, not by value.
+
+--
+
++ It uses minimal memory
+
+
+---
+
+# Synatx overview
+
+<br><br>
+
+![](https://www.meganstodel.com/posts/2019-05-30-three-reasons-why-i-use-data-table_files/datatable.png)
+
+.footnote[
+Image taken from `data.table` wiki, via Megan Stodel's excellent blog post: https://www.meganstodel.com/posts/data-table/
+]
+
+---
+
+# Examples
+
+
+```{r dt_example}
+library(NHSRdatasets)
+library(data.table)
+
+dt<-data.table(LOS_model)
+
+dt[Organisation == "Trust1", median(LOS)]
+
+dt[,median(LOS), Organisation]
+
+```
+
+
