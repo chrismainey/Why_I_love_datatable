@@ -1,7 +1,6 @@
 ---
-title: "Presentation Ninja"
-subtitle: "\u2694 <br/>with xaringan and xaringanthemer"  
-author: "Yihui Xie"
+title: "Why I love data.table"
+author: "Chris Mainey"
 date: '`r Sys.Date()`'
 output:
   xaringan::moon_reader:
