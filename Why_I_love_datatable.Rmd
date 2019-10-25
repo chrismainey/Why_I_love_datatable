@@ -75,7 +75,7 @@ mono_light(base_color = "#23395b",
 
 --
 
-+ Copy by reference, not by value.
++ Pass by reference, not by value.
 
 --
 
