@@ -59,7 +59,7 @@ mono_light(base_color = "#23395b",
 
 + Modern reworking of `data.frame`
 
-+ Java backend
++ Implemented in lower level language (I think it's C, but I don't know C)
 
 + Supports keys
 
@@ -107,7 +107,7 @@ Image taken from `data.table` wiki, via Megan Stodel's excellent blog post: http
 library(NHSRdatasets)
 library(data.table)
 
-dt<-data.table(LOS_model)
+dt<-data.table(LOS_model, key = "Organisation")
 
 dt[Organisation == "Trust1", median(LOS)]
 
