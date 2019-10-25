@@ -68,13 +68,12 @@ mono_light(base_color = "#23395b",
 
 # Why?
 
-+ `data.frame` is slow
-
-+ `data.table` is fast
++ `data.frame` is slow, `data.table` is fast:
 
 --
+
  + Like,  _reeeeeally fast_ : https://h2oai.github.io/db-benchmark/
- 
+
 --
 
 + Copy by reference, not by value.
@@ -82,6 +81,10 @@ mono_light(base_color = "#23395b",
 --
 
 + It uses minimal memory
+
+--
+
++ Parallelised, with fast I/O: `fread` and `fwrite`
 
 
 ---
@@ -109,7 +112,7 @@ dt<-data.table(LOS_model)
 
 dt[Organisation == "Trust1", median(LOS)]
 
-dt[,median(LOS), Organisation]
+dt[,.(Mean = mean(LOS),  Median=median(LOS)), Organisation]
 
 ```
 

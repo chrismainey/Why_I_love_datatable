@@ -4,7 +4,7 @@
     <title>Presentation Ninja</title>
     <meta charset="utf-8" />
     <meta name="author" content="Yihui Xie" />
-    <meta name="date" content="2019-10-24" />
+    <meta name="date" content="2019-10-25" />
     <link href="libs/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
@@ -58,13 +58,12 @@
 
 # Why?
 
-+ `data.frame` is slow
-
-+ `data.table` is fast
++ `data.frame` is slow, `data.table` is fast:
 
 --
+
  + Like,  _reeeeeally fast_ : https://h2oai.github.io/db-benchmark/
- 
+
 --
 
 + Copy by reference, not by value.
@@ -72,6 +71,10 @@
 --
 
 + It uses minimal memory
+
+--
+
++ Parallelised, with fast I/O: `fread` and `fwrite`
 
 
 ---
@@ -106,21 +109,21 @@ dt[Organisation == "Trust1", median(LOS)]
 ```
 
 ```r
-dt[,median(LOS), Organisation]
+dt[,.(Mean = mean(LOS),  Median=median(LOS)), Organisation]
 ```
 
 ```
-##     Organisation  V1
-##  1:       Trust1 5.0
-##  2:       Trust2 3.0
-##  3:       Trust3 4.5
-##  4:       Trust4 4.0
-##  5:       Trust5 4.5
-##  6:       Trust6 4.0
-##  7:       Trust7 4.0
-##  8:       Trust8 3.0
-##  9:       Trust9 4.0
-## 10:      Trust10 3.0
+##     Organisation     Mean Median
+##  1:       Trust1 5.066667    5.0
+##  2:       Trust2 4.233333    3.0
+##  3:       Trust3 5.066667    4.5
+##  4:       Trust4 4.866667    4.0
+##  5:       Trust5 6.100000    4.5
+##  6:       Trust6 4.900000    4.0
+##  7:       Trust7 5.100000    4.0
+##  8:       Trust8 4.700000    3.0
+##  9:       Trust9 5.033333    4.0
+## 10:      Trust10 4.300000    3.0
 ```
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
