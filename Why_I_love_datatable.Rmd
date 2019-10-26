@@ -59,9 +59,11 @@ mono_light(base_color = "#23395b",
 
 + Modern reworking of `data.frame`
 
-+ Implemented in lower level language (I think it's C, but I don't know C)
++ Implemented in C for speed and portability
 
-+ Supports keys
++ Using Low level paralellism via OpenMP
+
++ Supports keys, to physiscally order data in memory 
 
 --
 
@@ -83,7 +85,7 @@ mono_light(base_color = "#23395b",
 
 --
 
-+ Parallelised, with fast I/O: `fread` and `fwrite`
++ Fast I/O functions: `fread` and `fwrite`
 
 
 ---
